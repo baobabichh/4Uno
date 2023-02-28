@@ -3,6 +3,8 @@
 
 namespace card
 {
+	constexpr uint8_t CARDS_IN_DECK = 108;
+
 	enum class CardImage
 	{
 		Zero = 0,

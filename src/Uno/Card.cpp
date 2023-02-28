@@ -6,22 +6,27 @@ namespace card
 	{
 		return ((int)card.image >= (int)CardImage::Zero) && ((int)card.image <= (int)CardImage::Nine);
 	}
+
 	bool isActionCard(Card card)
 	{
 		return ((int)card.image >= (int)CardImage::Skip) && ((int)card.image <= (int)CardImage::Reverse);
 	}
+
 	bool isBlackCard(Card card)
 	{
 		return ((int)card.image >= (int)CardImage::ChangeColor) && ((int)card.image <= (int)CardImage::PlusFourChangeColor);
 	}
+
 	bool isSameColor(Card prev, Card next)
 	{
 		return (prev.color == next.color);
 	}
+
 	bool isSameImage(Card prev, Card next)
 	{
 		return (prev.image == next.image);
 	}
+
 	bool canBePlacedRegular(Card prev, Card next)
 	{
 		if (isBlackCard(next))
@@ -29,6 +34,7 @@ namespace card
 
 		return (isSameColor(prev, next) || isSameImage(prev, next));
 	}
+
 	bool canBePlacedSpecial(Card prev, Card next)
 	{
 		// Plus two.
