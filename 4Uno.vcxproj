@@ -387,6 +387,8 @@ copy /Y "$(SolutionDir)resources"  "$(TargetDir)resources\"</Command>
     <ClCompile Include="src\Scenes\SecondScene.cpp" />
     <ClCompile Include="src\Lib\Test.cpp" />
     <ClCompile Include="src\Uno\Card.cpp" />
+    <ClCompile Include="src\Uno\UnoMachine.cpp" />
+    <ClCompile Include="src\Uno\UnoRule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="extlibs\bin\x64\openal32.dll" />
@@ -504,6 +506,7 @@ copy /Y "$(SolutionDir)resources"  "$(TargetDir)resources\"</Command>
     <Library Include="extlibs\lib\x86\vorbisfile.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Tests\UnoMachineTests.h" />
     <ClInclude Include="src\Uno\CardDeck.h" />
     <ClInclude Include="extlibs\include\SFML\Audio.hpp" />
     <ClInclude Include="extlibs\include\SFML\Audio\AlResource.hpp" />
@@ -616,6 +619,8 @@ copy /Y "$(SolutionDir)resources"  "$(TargetDir)resources\"</Command>
     <ClInclude Include="src\Tests\CardTests.h" />
     <ClInclude Include="src\Tests\Tests.h" />
     <ClInclude Include="src\Uno\Card.h" />
+    <ClInclude Include="src\Uno\UnoMachine.h" />
+    <ClInclude Include="src\Uno\UnoRule.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\ball.wav" />

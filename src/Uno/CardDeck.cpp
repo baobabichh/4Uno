@@ -24,9 +24,48 @@ namespace card
 		std::random_shuffle(std::begin(m_cards), std::end(m_cards));
 	}
 
+	void CardDeck::pushBack(Card card)
+	{
+		m_cards.push_back(card);
+	}
+
+	Card CardDeck::top() const
+	{
+		if (isEmpty())
+			return Card();
+		return m_cards.back();
+	}
+
+	void CardDeck::pop()
+	{
+		m_cards.pop_back();
+	}
+
+	bool CardDeck::isEmpty() const
+	{
+		return m_cards.empty();
+	}
+
+	size_t CardDeck::getSize() const
+	{
+		return m_cards.size();
+	}
+
 	const std::vector<Card>& CardDeck::getContainer() const
 	{
 		return m_cards;
+	}
+
+	void CardDeck::refillOtherDeck(CardDeck& other)
+	{
+		other.clear();
+		while (getSize() > 1)
+		{
+			other.pushBack(top());
+			pop();
+		}
+
+		other.shuffle();
 	}
 
 	void generateDefaultCardVector(std::vector< Card>& vector)

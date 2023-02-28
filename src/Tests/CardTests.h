@@ -2,6 +2,7 @@
 #include "Uno/Card.h"
 #include "Lib/Test.h"
 
+
 TEST(CardTest_canBePlacedRegular)
 {
 	using namespace card;
@@ -46,7 +47,7 @@ TEST(CardTest_canBePlacedSpecial)
 	EXPECTED_FALSE(canBePlacedSpecial({ CardImage::PlusTwo, CardColor::Blue }, { CardImage::ChangeColor, CardColor::Red }));
 
 	// Skip.
-	EXPECTED_TRUE(canBePlacedSpecial({ CardImage::Skip, CardColor::Blue }, { CardImage::Skip, CardColor::Blue }));
+	EXPECTED_FALSE(canBePlacedSpecial({ CardImage::Skip, CardColor::Blue }, { CardImage::Skip, CardColor::Blue }));
 	EXPECTED_FALSE(canBePlacedSpecial({ CardImage::Skip, CardColor::Red }, { CardImage::Skip, CardColor::Blue }));
 
 	// Plus four.

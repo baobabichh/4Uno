@@ -2,6 +2,14 @@
 
 namespace card
 {
+
+	std::ostream& operator<<(std::ostream& out, const Card& card)
+	{
+		out << cardImageStr[(int)card.image] << " " << cardColorStr[(int)card.color];
+
+		return out;
+	}
+
 	bool isDigitCard(Card card)
 	{
 		return ((int)card.image >= (int)CardImage::Zero) && ((int)card.image <= (int)CardImage::Nine);
@@ -41,14 +49,16 @@ namespace card
 		if (prev.image == CardImage::PlusTwo && next.image == CardImage::PlusTwo)
 			return 1;
 
-		// Skip turn.
-		if (isSameColor(prev, next) && prev.image == CardImage::Skip && next.image == CardImage::Skip)
-			return 1;
 
 		// Plus four.
 		if (isSameColor(prev, next) && prev.image == CardImage::PlusFourChangeColor && next.image == CardImage::PlusTwo)
 			return 1;
 
 		return 0;
+	}
+
+	bool canBeContered(Card card)
+	{
+		return (CardImage::PlusTwo == card.image || CardImage::PlusFourChangeColor == card.image);
 	}
 }

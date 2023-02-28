@@ -54,6 +54,12 @@
     <ClCompile Include="src\Uno\CardDeck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Uno\UnoMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Uno\UnoRule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="extlibs\bin\x64\sfml-audio-2.dll">
@@ -727,6 +733,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Uno\CardDeck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Uno\UnoMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Uno\UnoRule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tests\UnoMachineTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
