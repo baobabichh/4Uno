@@ -1,6 +1,7 @@
 #include "App.h"
 #include "Scenes/MainScene.h"
 #include "Globals.h"
+#include "Tests/Tests.h"
 App::App()
 {
     Globals::Globals();
