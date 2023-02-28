@@ -26,12 +26,10 @@ TEST(CardTest_canBePlacedRegular)
 
 	for (size_t i = 1; i < sizeof(cards_correct)/ sizeof(Card); i++)
 	{
-		if (!canBePlacedRegular(cards_correct[i - 1], cards_correct[i]))
-			return 0;
+		EXPECTED_TRUE(canBePlacedRegular(cards_correct[i - 1], cards_correct[i]))
 	}
 
-	if (canBePlacedRegular({ CardImage::Zero, CardColor::Blue }, { CardImage::One, CardColor::Red }))
-		return 0;
+	EXPECTED_FALSE(canBePlacedRegular({ CardImage::Zero, CardColor::Blue }, { CardImage::One, CardColor::Red }))
 
 
 	return 1;
@@ -42,31 +40,18 @@ TEST(CardTest_canBePlacedSpecial)
 	using namespace card;
 
 	// Plus two.
-	if (!canBePlacedSpecial({ CardImage::PlusTwo, CardColor::Blue }, { CardImage::PlusTwo, CardColor::Blue }))
-		return 0;
-
-	if (!canBePlacedSpecial({ CardImage::PlusTwo, CardColor::Blue }, { CardImage::PlusTwo, CardColor::Red }))
-		return 0;
-
-	if (canBePlacedSpecial({ CardImage::PlusTwo, CardColor::Blue }, { CardImage::PlusFourChangeColor, CardColor::Red }))
-		return 0;
-
-	if (canBePlacedSpecial({ CardImage::PlusTwo, CardColor::Blue }, { CardImage::ChangeColor, CardColor::Red }))
-		return 0;
+	EXPECTED_TRUE(canBePlacedSpecial({ CardImage::PlusTwo, CardColor::Blue }, { CardImage::PlusTwo, CardColor::Blue }));
+	EXPECTED_TRUE(canBePlacedSpecial({ CardImage::PlusTwo, CardColor::Blue }, { CardImage::PlusTwo, CardColor::Red }));
+	EXPECTED_FALSE(canBePlacedSpecial({ CardImage::PlusTwo, CardColor::Blue }, { CardImage::PlusFourChangeColor, CardColor::Red }));
+	EXPECTED_FALSE(canBePlacedSpecial({ CardImage::PlusTwo, CardColor::Blue }, { CardImage::ChangeColor, CardColor::Red }));
 
 	// Skip.
-	if (!canBePlacedSpecial({ CardImage::Skip, CardColor::Blue }, { CardImage::Skip, CardColor::Blue }))
-		return 0;
-
-	if (canBePlacedSpecial({ CardImage::Skip, CardColor::Red }, { CardImage::Skip, CardColor::Blue }))
-		return 0;
+	EXPECTED_TRUE(canBePlacedSpecial({ CardImage::Skip, CardColor::Blue }, { CardImage::Skip, CardColor::Blue }));
+	EXPECTED_FALSE(canBePlacedSpecial({ CardImage::Skip, CardColor::Red }, { CardImage::Skip, CardColor::Blue }));
 
 	// Plus four.
-	if (!canBePlacedSpecial({ CardImage::PlusFourChangeColor, CardColor::Blue }, { CardImage::PlusTwo, CardColor::Blue }))
-		return 0;
-
-	if (canBePlacedSpecial({ CardImage::PlusFourChangeColor, CardColor::Red }, { CardImage::PlusTwo, CardColor::Blue }))
-		return 0;
+	EXPECTED_TRUE(canBePlacedSpecial({ CardImage::PlusFourChangeColor, CardColor::Blue }, { CardImage::PlusTwo, CardColor::Blue }));
+	EXPECTED_FALSE(canBePlacedSpecial({ CardImage::PlusFourChangeColor, CardColor::Red }, { CardImage::PlusTwo, CardColor::Blue }));
 
 
 	return 1;

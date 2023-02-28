@@ -2,6 +2,9 @@
 #include <chrono>
 #include <vector>
 
+#define EXPECTED_TRUE(x) if(!(x))return 0;
+#define EXPECTED_FALSE(x) if((x))return 0;
+
 namespace test
 {
 	class Test
