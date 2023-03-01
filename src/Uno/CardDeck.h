@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "Card.h"
+#include "StableCard.h"
 
 namespace card
 {
@@ -12,20 +12,20 @@ namespace card
 		void setDefault();
 		void clear();
 		void shuffle();
-		void pushBack(Card card);
-		Card top()const;
+		void pushBack(StableCard card);
+		StableCard top()const;
 		void pop();
 		bool isEmpty()const;
 		size_t getSize()const;
-		const std::vector<Card>& getContainer()const;
+		const std::vector<StableCard>& getContainer()const;
 
 		void refillOtherDeck(CardDeck& other);
 
 	private:
-		std::vector<Card> m_cards;
+		std::vector<StableCard> m_cards;
 	};
 
-	void generateDefaultCardVector(std::vector<Card>& vector);
+	void generateDefaultCardVector(std::vector<StableCard>& vector);
 
 }
 

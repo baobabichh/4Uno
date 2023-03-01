@@ -2,13 +2,15 @@
 #include "Scenes/MainScene.h"
 #include "Globals.h"
 #include "Tests/Tests.h"
+#include "Scenes/SecondScene.h"
+
 App::App()
 {
     Globals::Globals();
 
     createWindow();
 
-    m_sceneManager.setCurrentScene(std::make_unique<MainScene>());
+    m_sceneManager.setCurrentScene(std::make_unique<SecondScene>());
 }
 
 App::~App()
@@ -21,6 +23,11 @@ App& App::getInstance()
 	return s_appInstance;
 }
 
+sf::RenderWindow& App::getWindow()
+{
+    return m_window;
+}
+
 StackedEvent& App::getEvents()
 {
     return m_events;
@@ -31,9 +38,9 @@ TimeStep App::getTimeStep() const
 	return m_timeStep;
 }
 
-void App::draw(sf::Drawable& drawable)
+void App::draw(sf::Drawable& drawable, sf::RenderStates states)
 {
-    m_window.draw(drawable);
+    m_window.draw(drawable, states);
 }
 
 void App::run()

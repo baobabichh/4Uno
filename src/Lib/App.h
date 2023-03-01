@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <Lib/StackedEvent.h>
 #include <lib/SceneManager.h>
+#include "MyDrawable.h"
 
 typedef float TimeStep;
 
@@ -13,9 +14,10 @@ public:
 	~App();
 	static App& getInstance();
 
+	sf::RenderWindow& getWindow();
 	StackedEvent& getEvents();
 	TimeStep getTimeStep()const;
-	void draw(sf::Drawable& drawable);
+	void draw(sf::Drawable& drawable, sf::RenderStates states = sf::RenderStates::Default);
 
 	void run();
 

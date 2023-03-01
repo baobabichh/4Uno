@@ -27,11 +27,11 @@ namespace card
 		Player(const uint32_t id) : id(id){}
 
 		const uint32_t id = 0;
-		std::vector<Card> cards;
+		std::vector<StableCard> cards;
 		bool isPlaying = 0;
 
-		bool remove(Card card);
-		bool hasCard(Card card) const;
+		bool remove(StableCard card);
+		bool hasCard(StableCard card) const;
 	};
 
 
@@ -43,8 +43,8 @@ namespace card
 		
 		const std::vector<Player>& startGame();
 
-		bool canUseCard(const Player& player, Card card); 
-		void useCard(const Player& player, Card card);
+		bool canUseCard(const Player& player, StableCard card); 
+		void useCard(const Player& player, StableCard card);
 
 		bool canTakePlus(const Player& player);
 		void takePlus(const Player& player);
@@ -56,15 +56,15 @@ namespace card
 		void takeFromDeck(const Player& player);
 
 		const Player& getCurrentTurnPlayer()const;
-		CardColor getCurrentColor()const;
-		Card getCurrentCard()const;
+		StableCardColor getCurrentColor()const;
+		StableCard getCurrentCard()const;
 
 		bool isEnded()const;
 		const std::vector<uint32_t>& getResults()const;
 
 	protected:
-		virtual bool canBeFirstCard(Card card);
-		virtual bool shouldPersonMakeDecision(Card card);
+		virtual bool canBeFirstCard(StableCard card);
+		virtual bool shouldPersonMakeDecision(StableCard card);
 
 	private:
 		std::vector<Player> m_players;
@@ -82,7 +82,7 @@ namespace card
 	private:
 
 		void updateIsEnd();
-		Card takeOneCardFromDeck();
+		StableCard takeOneCardFromDeck();
 		void nextPlayer();
 		void reverse();
 		void skip();

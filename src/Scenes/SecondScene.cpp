@@ -2,6 +2,12 @@
 #include "Lib/Text.h"
 #include "Lib/App.h"
 #include "MainScene.h"
+#include "CardShowScene.h"
+
+SecondScene::SecondScene()
+{
+
+}
 
 void SecondScene::update()
 {
@@ -11,7 +17,8 @@ void SecondScene::update()
 		{
 			if (ev.key.code == sf::Keyboard::Num1)
 			{
-				changeScene(new MainScene());
+				changeScene(new CardShowScene());
+				return;
 			}
 		}
 	}
@@ -20,6 +27,6 @@ void SecondScene::update()
 void SecondScene::draw()
 {
 	displayFps();
-	displayText("Second scene", 0, 100);
-	displayText("Press 1 to go to second scene", 0, 200);
+	displayText("Show scene", 0, 100);
+	displayText("Press 1 to go card show scene", 0, 200);
 }

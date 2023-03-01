@@ -45,7 +45,7 @@
     <ClCompile Include="src\Lib\SceneManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Uno\Card.cpp">
+    <ClCompile Include="src\Uno\StableCard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Lib\Test.cpp">
@@ -58,6 +58,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Uno\UnoRule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Uno\DrawableCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Uno\UnstableCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\CardShowScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -717,7 +726,7 @@
     <ClInclude Include="src\Lib\SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Uno\Card.h">
+    <ClInclude Include="src\Uno\StableCard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Lib\Debug.h">
@@ -742,6 +751,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Tests\UnoMachineTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Uno\DrawableCard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Lib\MyDrawable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Uno\UnstableCard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\CardShowScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

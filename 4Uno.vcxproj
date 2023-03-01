@@ -375,6 +375,8 @@ copy /Y "$(SolutionDir)resources"  "$(TargetDir)resources\"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Scenes\CardShowScene.cpp" />
+    <ClCompile Include="src\Uno\DrawableCard.cpp" />
     <ClCompile Include="src\Uno\CardDeck.cpp" />
     <ClCompile Include="src\Lib\SceneManager.cpp" />
     <ClCompile Include="src\Lib\Globals.cpp" />
@@ -386,9 +388,10 @@ copy /Y "$(SolutionDir)resources"  "$(TargetDir)resources\"</Command>
     <ClCompile Include="src\Lib\StackedEvent.cpp" />
     <ClCompile Include="src\Scenes\SecondScene.cpp" />
     <ClCompile Include="src\Lib\Test.cpp" />
-    <ClCompile Include="src\Uno\Card.cpp" />
+    <ClCompile Include="src\Uno\StableCard.cpp" />
     <ClCompile Include="src\Uno\UnoMachine.cpp" />
     <ClCompile Include="src\Uno\UnoRule.cpp" />
+    <ClCompile Include="src\Uno\UnstableCard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="extlibs\bin\x64\openal32.dll" />
@@ -506,6 +509,9 @@ copy /Y "$(SolutionDir)resources"  "$(TargetDir)resources\"</Command>
     <Library Include="extlibs\lib\x86\vorbisfile.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Scenes\CardShowScene.h" />
+    <ClInclude Include="src\Lib\MyDrawable.h" />
+    <ClInclude Include="src\Uno\DrawableCard.h" />
     <ClInclude Include="src\Tests\UnoMachineTests.h" />
     <ClInclude Include="src\Uno\CardDeck.h" />
     <ClInclude Include="extlibs\include\SFML\Audio.hpp" />
@@ -618,9 +624,10 @@ copy /Y "$(SolutionDir)resources"  "$(TargetDir)resources\"</Command>
     <ClInclude Include="src\Lib\Test.h" />
     <ClInclude Include="src\Tests\CardTests.h" />
     <ClInclude Include="src\Tests\Tests.h" />
-    <ClInclude Include="src\Uno\Card.h" />
+    <ClInclude Include="src\Uno\StableCard.h" />
     <ClInclude Include="src\Uno\UnoMachine.h" />
     <ClInclude Include="src\Uno\UnoRule.h" />
+    <ClInclude Include="src\Uno\UnstableCard.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\ball.wav" />

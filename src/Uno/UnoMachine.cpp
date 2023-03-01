@@ -49,7 +49,7 @@ namespace card
 
 		return m_players;
 	}
-	bool UnoMachine::canUseCard(const Player& p, Card card)
+	bool UnoMachine::canUseCard(const Player& p, StableCard card)
 	{
 		auto& player = m_players[p.id];
 
@@ -75,7 +75,7 @@ namespace card
 		}
 
 	}
-	void UnoMachine::useCard(const Player& p, Card card)
+	void UnoMachine::useCard(const Player& p, StableCard card)
 	{
 		auto& player = m_players[p.id];
 
@@ -95,11 +95,11 @@ namespace card
 			m_playerShouldMakeDecision = 0;
 		}
 
-		if (CardImage::Reverse == card.image)
+		if (StableCardImage::Reverse == card.image)
 		{
 			reverse();
 		}
-		else if (CardImage::Skip == card.image)
+		else if (StableCardImage::Skip == card.image)
 		{
 			nextPlayer();
 		}
@@ -121,7 +121,7 @@ namespace card
 		if (m_isEnded || m_currentPlayer != player.id || !m_playerShouldMakeDecision)
 			return 0;
 
-		if (m_playingDeck.top().image == CardImage::PlusTwo || m_playingDeck.top().image == CardImage::PlusFourChangeColor)
+		if (m_playingDeck.top().image == StableCardImage::PlusTwo || m_playingDeck.top().image == StableCardImage::PlusFourChangeColor)
 		{
 			return 1;
 		}
@@ -135,12 +135,12 @@ namespace card
 
 		m_playerShouldMakeDecision = 0;
 
-		if (m_playingDeck.top().image == CardImage::PlusTwo)
+		if (m_playingDeck.top().image == StableCardImage::PlusTwo)
 		{
 			m_players[player.id].cards.push_back(takeOneCardFromDeck());
 			m_players[player.id].cards.push_back(takeOneCardFromDeck());
 		}
-		else if (m_playingDeck.top().image == CardImage::PlusFourChangeColor)
+		else if (m_playingDeck.top().image == StableCardImage::PlusFourChangeColor)
 		{
 			m_players[player.id].cards.push_back(takeOneCardFromDeck());
 			m_players[player.id].cards.push_back(takeOneCardFromDeck());
@@ -157,7 +157,7 @@ namespace card
 
 		if (m_playerShouldMakeDecision)
 		{
-			if (m_playingDeck.top().image == CardImage::PlusFourChangeColor)
+			if (m_playingDeck.top().image == StableCardImage::PlusFourChangeColor)
 			{
 				return 1;
 			}
@@ -175,7 +175,7 @@ namespace card
 		bool successBluff = 0;
 
 		const auto& deckCards = m_playingDeck.getContainer();
-		const Card prevprevCard = deckCards[deckCards.size() - 2];
+		const StableCard prevprevCard = deckCards[deckCards.size() - 2];
 		for (const auto it : (m_players[m_prevPlayerUsedCard].cards))
 		{
 			if (prevprevCard.color == it.color)
@@ -221,11 +221,11 @@ namespace card
 	{
 		return m_players[m_currentPlayer];
 	}
-	CardColor UnoMachine::getCurrentColor() const
+	StableCardColor UnoMachine::getCurrentColor() const
 	{
 		return m_playingDeck.top().color;
 	}
-	Card UnoMachine::getCurrentCard() const
+	StableCard UnoMachine::getCurrentCard() const
 	{
 		return m_playingDeck.top();
 	}
@@ -249,7 +249,7 @@ namespace card
 			m_isEnded = 0;
 	}
 
-	Card UnoMachine::takeOneCardFromDeck()
+	StableCard UnoMachine::takeOneCardFromDeck()
 	{
 		if (m_secondDeck.isEmpty())
 		{
@@ -304,22 +304,22 @@ namespace card
 		nextPlayer();
 	}
 
-	bool UnoMachine::canBeFirstCard(Card card)
+	bool UnoMachine::canBeFirstCard(StableCard card)
 	{
 		return !isBlackCard(card);
 	}
-	bool UnoMachine::shouldPersonMakeDecision(Card card)
+	bool UnoMachine::shouldPersonMakeDecision(StableCard card)
 	{
-		return (CardImage::PlusTwo == card.image || CardImage::PlusFourChangeColor == card.image);
+		return (StableCardImage::PlusTwo == card.image || StableCardImage::PlusFourChangeColor == card.image);
 	}
-	bool Player::hasCard(Card card)const
+	bool Player::hasCard(StableCard card)const
 	{
-		auto it = std::find_if(std::begin(cards), std::end(cards), [&](Card curr) {return curr.image == card.image && curr.color == card.color; });
+		auto it = std::find_if(std::begin(cards), std::end(cards), [&](StableCard curr) {return curr.image == card.image && curr.color == card.color; });
 		return (it != std::end(cards));
 	}
-	bool Player::remove(Card card)
+	bool Player::remove(StableCard card)
 	{
-		auto it = std::find_if(std::begin(cards), std::end(cards), [&](Card curr) {return curr.image == card.image && curr.color == card.color; });
+		auto it = std::find_if(std::begin(cards), std::end(cards), [&](StableCard curr) {return curr.image == card.image && curr.color == card.color; });
 		if (it == std::end(cards))
 			return 0;
 		cards.erase(it);

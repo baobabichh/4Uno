@@ -3,12 +3,16 @@
 #include "Text.h"
 
 sf::Font Globals::s_font = sf::Font();
+sf::Texture Globals::s_cardTexture = sf::Texture();
 std::mt19937 Globals::s_randomNumberGenerator = std::mt19937();
 
 Globals::Globals()
 {
 	if (!s_font.loadFromFile("Resources/MontserratAlternates-Black.otf"))
 		PRINT_ERROR("Failed to load font.")
+
+	if (!s_cardTexture.loadFromFile("Resources/cards3.png"))
+		PRINT_ERROR("Failed to load cards texure.")
 		
 	s_randomNumberGenerator = std::mt19937(time(0));
 }
@@ -16,6 +20,11 @@ Globals::Globals()
 const sf::Font& Globals::getFont()
 {
 	return s_font;
+}
+
+const sf::Texture& Globals::getCardTexture()
+{
+	return s_cardTexture;
 }
 
 int32_t Globals::rand32(int32_t min, int32_t max)

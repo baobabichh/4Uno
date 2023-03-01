@@ -24,15 +24,15 @@ namespace card
 		std::random_shuffle(std::begin(m_cards), std::end(m_cards));
 	}
 
-	void CardDeck::pushBack(Card card)
+	void CardDeck::pushBack(StableCard card)
 	{
 		m_cards.push_back(card);
 	}
 
-	Card CardDeck::top() const
+	StableCard CardDeck::top() const
 	{
 		if (isEmpty())
-			return Card();
+			return StableCard();
 		return m_cards.back();
 	}
 
@@ -51,7 +51,7 @@ namespace card
 		return m_cards.size();
 	}
 
-	const std::vector<Card>& CardDeck::getContainer() const
+	const std::vector<StableCard>& CardDeck::getContainer() const
 	{
 		return m_cards;
 	}
@@ -68,27 +68,27 @@ namespace card
 		other.shuffle();
 	}
 
-	void generateDefaultCardVector(std::vector< Card>& vector)
+	void generateDefaultCardVector(std::vector< StableCard>& vector)
 	{
 		using namespace card;
 
 		vector.reserve(CARDS_IN_DECK);
-		for (size_t i = (int)CardImage::Zero; i <= (int)CardImage::Reverse; i++)
+		for (size_t i = (int)StableCardImage::Zero; i <= (int)StableCardImage::Reverse; i++)
 		{
-			for (size_t c = (int)CardColor::Red; c <= (int)CardColor::Green; c++)
+			for (size_t c = (int)StableCardColor::Red; c <= (int)StableCardColor::Green; c++)
 			{
-				vector.push_back({ (CardImage)i, (CardColor)c });
-				vector.push_back({ (CardImage)i, (CardColor)c });
+				vector.push_back({ (StableCardImage)i, (StableCardColor)c });
+				vector.push_back({ (StableCardImage)i, (StableCardColor)c });
 			}
 		}
-		vector.push_back({ CardImage::ChangeColor, CardColor::Red });
-		vector.push_back({ CardImage::ChangeColor, CardColor::Red });
-		vector.push_back({ CardImage::ChangeColor, CardColor::Red });
-		vector.push_back({ CardImage::ChangeColor, CardColor::Red });
+		vector.push_back({ StableCardImage::ChangeColor, StableCardColor::Red });
+		vector.push_back({ StableCardImage::ChangeColor, StableCardColor::Red });
+		vector.push_back({ StableCardImage::ChangeColor, StableCardColor::Red });
+		vector.push_back({ StableCardImage::ChangeColor, StableCardColor::Red });
 
-		vector.push_back({ CardImage::PlusFourChangeColor, CardColor::Red });
-		vector.push_back({ CardImage::PlusFourChangeColor, CardColor::Red });
-		vector.push_back({ CardImage::PlusFourChangeColor, CardColor::Red });
-		vector.push_back({ CardImage::PlusFourChangeColor, CardColor::Red });
+		vector.push_back({ StableCardImage::PlusFourChangeColor, StableCardColor::Red });
+		vector.push_back({ StableCardImage::PlusFourChangeColor, StableCardColor::Red });
+		vector.push_back({ StableCardImage::PlusFourChangeColor, StableCardColor::Red });
+		vector.push_back({ StableCardImage::PlusFourChangeColor, StableCardColor::Red });
 	}
 }
